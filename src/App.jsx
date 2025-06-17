@@ -2,8 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './global.css';
 import HomePage from './Pages/HomePage';
 import AuthPage from './Pages/AuthPage';
-import { ThemeProvider } from './Components/theme-provider.jsx';
-
+import { ThemeProvider } from './components/theme-provider.jsx';
 
 function App() {
   return (
