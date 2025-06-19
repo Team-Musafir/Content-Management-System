@@ -96,7 +96,7 @@ export default function HomePage() {
             {/* Header with Breadcrumb and Action Buttons */}
             <header className="sticky top-12 z-40 bg-background flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 border-b px-4 py-3">
               <div className="flex items-center gap-2 min-w-0">
-                <SidebarTrigger className="md:hidden" />
+                <SidebarTrigger />
                 <Separator orientation="vertical" className="h-6 hidden md:block" />
                 <Breadcrumb className="hidden md:flex">
                   <BreadcrumbList>
