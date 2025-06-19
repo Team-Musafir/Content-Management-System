@@ -11,12 +11,12 @@ export default function TourPage() {
       duration: "14 days",
       description: "Cultural experience",
       price: 1499,
-      long_description: "Immersive cultural tour...",
+      long_description: "Immersive cultural tour through India's diverse heritage, visiting historical sites and experiencing local traditions",
       hero_img: "/images/tour1.jpg",
       includes: ["Accommodation", "Meals", "Guide"],
       excludes: ["Flights", "Insurance"],
-      itinerary_days: ["Day 1: Arrival", "Day 2: City Tour"],
-      gallery_images: ["/img1.jpg", "/img2.jpg"],
+      itinerary_days: ["Day 1: Arrival", "Day 2: City Tour", "Day 3: Cultural Show", "Day 4: Departure"],
+      gallery_images: ["/img1.jpg", "/img2.jpg", "/img3.jpg", "/img4.jpg"],
       category: "Cultural",
       discount: 10
     },
@@ -29,57 +29,64 @@ export default function TourPage() {
   };
 
   return (
-    <div className="p-6 overflow-x-auto">
-      <h1 className="text-2xl font-bold mb-6">Tour Management</h1>
-      
-      <div className="rounded-lg border overflow-hidden">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Slug</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Location</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Duration</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Long Description</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hero Image</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Includes</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Excludes</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Itinerary Days</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Gallery Images</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Discount</th>
+    <div className="p-1 overflow-x-auto text-gray-100 min-h-screen">
+      <div>
+        <table className="min-w-full divide-y">
+          <thead>
+            <tr className='align-middle'>
+              <th className="px-6 pb-3 whitespace-nowrap text-left text-xs font-medium text-gray-300 uppercase tracking-wider align-middle">Title</th>
+              <th className="px-6 pb-3 whitespace-nowrap text-left text-xs font-medium text-gray-300 uppercase tracking-wider align-middle">Slug</th>
+              <th className="px-6 pb-3 whitespace-nowrap text-left text-xs font-medium text-gray-300 uppercase tracking-wider align-middle">Location</th>
+              <th className="px-6 pb-3 whitespace-nowrap text-left text-xs font-medium text-gray-300 uppercase tracking-wider align-middle">Duration</th>
+              <th className="px-6 pb-3 whitespace-nowrap text-left text-xs font-medium text-gray-300 uppercase tracking-wider align-middle">Description</th>
+              <th className="px-6 pb-3 whitespace-nowrap text-left text-xs font-medium text-gray-300 uppercase tracking-wider align-middle">Price</th>
+              <th className="px-6 pb-3 whitespace-nowrap text-left text-xs font-medium text-gray-300 uppercase tracking-wider align-middle">Long Description</th>
+              <th className="px-6 pb-3 whitespace-nowrap text-left text-xs font-medium text-gray-300 uppercase tracking-wider  align-middle">Hero Image</th>
+              <th className="px-6 pb-3 whitespace-nowrap text-left text-xs font-medium text-gray-300 uppercase tracking-wider align-middle">Includes</th>
+              <th className="px-6 pb-3 whitespace-nowrap text-left text-xs font-medium text-gray-300 uppercase tracking-wider align-middle">Excludes</th>
+              <th className="px-6 pb-3 whitespace-nowrap text-left text-xs font-medium text-gray-300 uppercase tracking-wider align-middle">Itinerary Days</th>
+              <th className="px-6 pb-3 whitespace-nowrap text-left text-xs font-medium text-gray-300 uppercase tracking-wider align-middle">Gallery Images</th>
+              <th className="px-6 pb-3 whitespace-nowrap text-left text-xs font-medium text-gray-300 uppercase tracking-wider align-middle">Category</th>
+              <th className="px-6 pb-3 whitespace-nowrap text-left text-xs font-medium text-gray-300 uppercase tracking-wider align-middle">Discount</th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+
+          <tbody className="divide-y">
             {tours.map((tour) => (
               <tr key={tour.id}>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{tour.title}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{tour.slug}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{tour.location}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{tour.duration}</td>
-                <td className="px-6 py-4 text-sm text-gray-900 max-w-xs">{tour.description}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${tour.price}</td>
-                <td className="px-6 py-4 text-sm text-gray-900 max-w-xs">{tour.long_description}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  <img src={tour.hero_img} alt="Hero" className="h-10 w-10 rounded-full object-cover"/>
+                <td className="px-6 py-4 align-middle whitespace-nowrap text-ellipsis max-w-[120px] text-xs font-medium text-white">{tour.title}</td>
+                <td className="px-6 py-4 align-middle whitespace-nowrap overflow-hidden text-ellipsis max-w-[100px] text-xs text-gray-300">{tour.slug}</td>
+                <td className="px-6 py-4 align-middle whitespace-nowrap overflow-hidden text-ellipsis max-w-[120px] text-xs text-white">{tour.location}</td>
+                <td className="px-6 py-4 align-middle whitespace-nowrap overflow-hidden text-ellipsis max-w-[80px] text-xs text-white">{tour.duration}</td>
+                <td className="px-6 py-4 align-middle whitespace-nowrap overflow-hidden text-ellipsis max-w-[120px] text-xs text-gray-300">{tour.description}</td>
+                <td className="px-6 py-4 align-middle whitespace-nowrap overflow-hidden text-ellipsis max-w-[80px] text-xs text-green-400">${tour.price}</td>
+                <td className="px-6 py-4 align-middle whitespace-nowrap overflow-hidden text-ellipsis max-w-[200px] text-xs text-gray-300" title={tour.long_description}>
+                  {tour.long_description}
                 </td>
-                <td className="px-6 py-4 text-sm text-gray-900 max-w-xs">{formatArrayField(tour.includes)}</td>
-                <td className="px-6 py-4 text-sm text-gray-900 max-w-xs">{formatArrayField(tour.excludes)}</td>
-                <td className="px-6 py-4 text-sm text-gray-900 max-w-xs">{formatArrayField(tour.itinerary_days)}</td>
-                <td className="px-6 py-4 text-sm text-gray-900 max-w-xs">
-                  <div className="flex space-x-1">
+                <td className="px-6 py-4 align-middle whitespace-nowrap">
+                  <img src={tour.hero_img} alt="Hero" className="h-10 w-10 rounded-full object-cover mx-auto"/>
+                </td>
+                <td className="px-6 py-4 align-middle whitespace-nowrap overflow-hidden text-ellipsis max-w-[150px] text-sm text-gray-300" title={formatArrayField(tour.includes)}>
+                  {formatArrayField(tour.includes)}
+                </td>
+                <td className="px-6 py-4 align-middle whitespace-nowrap overflow-hidden text-ellipsis max-w-[150px] text-sm text-gray-300" title={formatArrayField(tour.excludes)}>
+                  {formatArrayField(tour.excludes)}
+                </td>
+                <td className="px-6 py-4 align-middle whitespace-nowrap overflow-hidden text-ellipsis max-w-[200px] text-sm text-gray-300" title={formatArrayField(tour.itinerary_days)}>
+                  {formatArrayField(tour.itinerary_days)}
+                </td>
+                <td className="px-6 py-4 align-middle whitespace-nowrap">
+                  <div className="flex space-x-1 justify-center">
                     {tour.gallery_images.slice(0, 3).map((img, i) => (
                       <img key={i} src={img} alt={`Gallery ${i}`} className="h-8 w-8 rounded object-cover"/>
                     ))}
                     {tour.gallery_images.length > 3 && (
-                      <span className="text-xs text-gray-500">+{tour.gallery_images.length - 3}</span>
+                      <span className="text-xs text-gray-500 self-center">+{tour.gallery_images.length - 3}</span>
                     )}
                   </div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{tour.category}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{tour.discount}%</td>
+                <td className="px-6 py-4 align-middle whitespace-nowrap overflow-hidden text-ellipsis max-w-[100px] text-sm text-white">{tour.category}</td>
+                <td className="px-6 py-4 align-middle whitespace-nowrap overflow-hidden text-ellipsis max-w-[80px] text-sm text-yellow-400">{tour.discount}%</td>
               </tr>
             ))}
           </tbody>

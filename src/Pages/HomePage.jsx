@@ -50,7 +50,7 @@ export default function HomePage() {
   return (
     <div className="relative min-h-screen bg-background">
       {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b">
         <div className="flex h-12 items-center px-4">
           <div className="mr-4 flex">
             <a className="mr-6 flex items-center space-x-2" href="/">
@@ -91,51 +91,51 @@ export default function HomePage() {
             <AppSidebar onItemChange={handleItemChange} />
           </div>
 
-          <SidebarInset>
+          {/* Content Section with proper width control */}
+          <SidebarInset className="w-full min-w-0">
             {/* Header with Breadcrumb and Action Buttons */}
-            <header className="flex h-12 items-center justify-between border-b px-4">
-              <div className="flex items-center gap-4">
-                <SidebarTrigger className="-ml-1 md:hidden" />
+            <header className="sticky top-12 z-40 bg-background flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 border-b px-4 py-3">
+              <div className="flex items-center gap-2 min-w-0">
+                <SidebarTrigger className="md:hidden" />
                 <Separator orientation="vertical" className="h-6 hidden md:block" />
-                {/* Hidden on mobile, visible on desktop */}
-                <div className="hidden md:block">
-                  <Breadcrumb>
-                    <BreadcrumbList>
-                      <BreadcrumbItem>
-                        <BreadcrumbPage className="text-sm font-medium">
-                          {getActiveLabel()}
-                        </BreadcrumbPage>
-                      </BreadcrumbItem>
-                      <BreadcrumbSeparator />
-                      <BreadcrumbItem>
-                        <BreadcrumbPage className="text-sm font-medium">
-                          Dashboard
-                        </BreadcrumbPage>
-                      </BreadcrumbItem>
-                    </BreadcrumbList>
-                  </Breadcrumb>
-                </div>
+                <Breadcrumb className="hidden md:flex">
+                  <BreadcrumbList>
+                    <BreadcrumbItem>
+                      <BreadcrumbPage className="text-sm font-medium truncate">
+                        {getActiveLabel()}
+                      </BreadcrumbPage>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator />
+                    <BreadcrumbItem>
+                      <BreadcrumbPage className="text-sm font-medium">
+                        Dashboard
+                      </BreadcrumbPage>
+                    </BreadcrumbItem>
+                  </BreadcrumbList>
+                </Breadcrumb>
               </div>
 
-              {/* Action Buttons - Minimal Style */}
-              <div className="flex items-center gap-2">
+              {/* Action Buttons - Ensure they stay visible */}
+              <div className="flex items-center gap-2 flex-shrink-0">
                 <Button variant="ghost" size="sm" className="h-8 px-2 gap-1 text-xs">
                   <Plus className="h-3.5 w-3.5" />
-                  <span>New</span>
+                  <span className="hidden sm:inline">New</span>
                 </Button>
                 <Button variant="ghost" size="sm" className="h-8 px-2 gap-1 text-xs">
                   <List className="h-3.5 w-3.5" />
-                  <span>Select</span>
+                  <span className="hidden sm:inline">Select</span>
                 </Button>
                 <Button variant="ghost" size="sm" className="h-8 px-2 gap-1 text-xs">
                   <Edit className="h-3.5 w-3.5" />
-                  <span>Edit</span>
+                  <span className="hidden sm:inline">Edit</span>
                 </Button>
               </div>
             </header>
 
             {/* Dynamic Page Content */}
-            {renderContent()}
+            <div className="p-4 w-full">
+              {renderContent()}
+            </div>
           </SidebarInset>
         </SidebarProvider>
       </div>
